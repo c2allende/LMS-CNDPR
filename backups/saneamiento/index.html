@@ -6,10 +6,13 @@
     <title>Iniciar Sesión | [NOMBRE DE TU LMS]</title>
     <link rel="stylesheet" href="styles/main.css">
     <style>
-        .login-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: var(--space-4); background: var(--color-bg); }
-        .login-card-container { width: 100%; max-width: 1000px; display: grid; grid-template-columns: 1fr 1fr; background: var(--color-surface); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-md); }
-        .login-sidebar { padding: var(--space-8); background: var(--color-primary); color: var(--color-text-inverse); display: flex; flex-direction: column; justify-content: center; }
-        .login-content { padding: var(--space-8); display: flex; flex-direction: column; justify-content: center; }
+        .login-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: var(--spacing-md); background: var(--color-background-page); }
+        .login-card-container { width: 100%; max-width: 1000px; display: grid; grid-template-columns: 1fr 1fr; background: var(--color-background-surface); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-ambient); }
+        .login-sidebar { padding: var(--spacing-xl); background: var(--color-brand-primary); color: var(--color-white); display: flex; flex-direction: column; justify-content: center; }
+        .login-content { padding: var(--spacing-xl); display: flex; flex-direction: column; justify-content: center; }
+        .form-group { margin-bottom: var(--spacing-lg); }
+        .form-label { display: block; margin-bottom: var(--spacing-xs); font-weight: bold; font-size: var(--font-size-xs); text-transform: uppercase; }
+        .input-field { width: 100%; padding: var(--spacing-3) var(--spacing-4); border-radius: var(--radius-pill); border: 1px solid var(--color-border-default); background: var(--color-background-surface-low); }
         @media (max-width: 768px) { .login-card-container { grid-template-columns: 1fr; } .login-sidebar { display: none; } }
     </style>
 </head>
@@ -25,11 +28,11 @@
                 <form id="loginForm">
                     <div class="form-group">
                         <label class="form-label">Email</label>
-                        <input type="email" class="input" placeholder="correo@ejemplo.com" required>
+                        <input type="email" class="input-field" placeholder="correo@ejemplo.com" required>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Contraseña</label>
-                        <input type="password" class="input" placeholder="••••••••" required>
+                        <input type="password" class="input-field" placeholder="••••••••" required>
                     </div>
                     <button type="submit" class="btn btn-primary w-full">ENTRAR</button>
                 </form>

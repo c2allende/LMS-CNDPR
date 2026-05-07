@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividad | LMS CNDPR</title>
+    <title>Recursos | LMS CNDPR</title>
     <link rel="stylesheet" href="styles/main.css">
     <script type="module" src="scripts/auth-guard.js"></script>
 </head>
@@ -15,19 +15,19 @@
                 <div class="logo-placeholder" style="width: 40px; height: 40px; background: var(--color-primary); border-radius: var(--radius-sm); display: grid; place-items: center; color: white; font-weight: bold;">L</div>
                 <span>LMS CNDPR</span>
             </a>
-
+            
             <nav class="sidebar-nav">
                 <a href="dashboard.html" class="nav-link">
                     <span class="icon">🏠</span>
                     <span>Dashboard</span>
                 </a>
-
+                
                 <div class="meta-label p-4 mb-0" style="padding: var(--space-4) var(--space-4) 0; font-size: var(--text-xs); color: var(--color-text-faint);">Módulo Actual</div>
                 <a href="modulo1_intro.html" class="nav-link is-active">
                     <span class="icon">📘</span>
                     <span>Módulo 1</span>
                 </a>
-
+                
                 <hr class="mt-4 mb-4">
                 <a href="perfil.html" class="nav-link">
                     <span class="icon">👤</span>
@@ -53,57 +53,34 @@
                 <button class="mobile-menu-button btn btn-ghost btn-icon" aria-label="Abrir menú de navegación" aria-controls="lms-sidebar" aria-expanded="false">
                     <span style="font-size: 24px;">☰</span>
                 </button>
-                <div class="topbar-title">Actividad [X.X]: [TÍTULO]</div>
+                <div class="topbar-title">Materiales y Recursos | Módulo [X]</div>
                 <div class="topbar-actions">
                     <div class="cluster">
-                        <span class="badge badge-warning">Evaluación</span>
+                        <span class="badge badge-primary">Biblioteca</span>
                     </div>
                 </div>
             </header>
 
             <!-- Page Content -->
             <div class="page-wrapper">
-                <div class="lesson-layout">
-                    <div class="lesson-content">
-                        <!-- Activity Header -->
-                        <header class="lesson-header mb-8">
-                            <span class="eyebrow">Actividad de Refuerzo</span>
-                            <h1 class="page-title">[TÍTULO DE LA ACTIVIDAD]</h1>
-                        </header>
+                <header class="page-header">
+                    <h1 class="page-title">Recursos del Módulo [X]</h1>
+                    <p class="text-muted">Descargas y materiales complementarios.</p>
+                </header>
 
-                        <!-- Instructions -->
-                        <div class="instruction-box">
-                            <h2 class="weight-bold">Instrucciones</h2>
-                            <p>[DESCRIBE LOS PASOS DE LA ACTIVIDAD AQUÍ]</p>
+                                <a href="#" class="btn btn-outline btn-sm">VISITAR</a>
+                            </div>
                         </div>
-
-                        <!-- Submission Form -->
-                        <section class="section">
-                            <div class="form-group">
-                                <label class="form-label">Tu Entrega</label>
-                                <textarea class="textarea" rows="8" placeholder="Escribe tu respuesta aquí..."></textarea>
-                            </div>
-                            <div class="split mt-6" style="margin-top: var(--space-6);">
-                                <div></div>
-                                <button type="button" class="btn btn-primary">Enviar Actividad</button>
-                            </div>
-                        </section>
-
-                        <!-- Navigation Footer -->
-                        <footer class="lesson-nav mt-12 pt-8" style="margin-top: var(--space-12); padding-top: var(--space-8); border-top: 1px solid var(--color-border);">
-                            <div class="split">
-                                <!-- TODO: enlace dinámico a la lección de origen -->
-                                <a href="#" class="btn btn-outline">
-                                    <span>← Volver a la Lección</span>
-                                </a>
-                                <!-- TODO: enlace al foro del módulo -->
-                                <a href="#" class="btn btn-ghost">
-                                    <span>Ir al Foro →</span>
-                                </a>
-                            </div>
-                        </footer>
                     </div>
-                </div>
+                </section>
+
+                <!-- Support Support Callout -->
+                <section class="section">
+                    <div class="summary-box">
+                        <h3 class="weight-bold mb-2">¿Necesitas ayuda?</h3>
+                        <p class="text-sm">Si tienes problemas para visualizar los recursos, contacta al soporte técnico o revisa tu conexión a internet.</p>
+                    </div>
+                </section>
             </div>
         </main>
     </div>

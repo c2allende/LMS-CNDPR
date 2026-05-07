@@ -15,19 +15,19 @@
                 <div class="logo-placeholder" style="width: 40px; height: 40px; background: var(--color-primary); border-radius: var(--radius-sm); display: grid; place-items: center; color: white; font-weight: bold;">L</div>
                 <span>LMS CNDPR</span>
             </a>
-            
+
             <nav class="sidebar-nav">
                 <a href="dashboard.html" class="nav-link">
                     <span class="icon">🏠</span>
                     <span>Dashboard</span>
                 </a>
-                
+
                 <div class="meta-label p-4 mb-0" style="padding: var(--space-4) var(--space-4) 0; font-size: var(--text-xs); color: var(--color-text-faint);">Módulo Actual</div>
                 <a href="modulo1_intro.html" class="nav-link is-active">
                     <span class="icon">📘</span>
                     <span>Módulo 1</span>
                 </a>
-                
+
                 <hr class="mt-4 mb-4">
                 <a href="perfil.html" class="nav-link">
                     <span class="icon">👤</span>
@@ -56,7 +56,7 @@
                 <div class="topbar-title">Materiales y Recursos | Módulo [X]</div>
                 <div class="topbar-actions">
                     <div class="cluster">
-                        <span class="badge badge-primary">Biblioteca</span>
+                        <span class="badge badge-info">Biblioteca</span>
                     </div>
                 </div>
             </header>
@@ -65,18 +65,35 @@
             <div class="page-wrapper">
                 <header class="page-header">
                     <h1 class="page-title">Recursos del Módulo [X]</h1>
-                    <p class="text-muted">Descargas y materiales complementarios.</p>
+                    <p class="text-muted">Descargas y materiales complementarios para este módulo.</p>
                 </header>
 
-                                <a href="#" class="btn btn-outline btn-sm">VISITAR</a>
+                <!-- Resources Grid -->
+                <section class="section">
+                    <div class="material-grid">
+                        <div class="resource-card" data-type="lectura">
+                            <div class="resource-icon">📄</div>
+                            <div>
+                                <strong class="text-sm">[NOMBRE DEL RECURSO 1]</strong>
+                                <p class="text-xs text-muted">PDF · 2.4 MB</p>
                             </div>
+                            <a href="#" class="btn btn-outline btn-sm">Descargar</a>
+                        </div>
+
+                        <div class="resource-card" data-type="plantilla">
+                            <div class="resource-icon">🔗</div>
+                            <div>
+                                <strong class="text-sm">[ENLACE DE INTERÉS]</strong>
+                                <p class="text-xs text-muted">Sitio web externo</p>
+                            </div>
+                            <a href="#" class="btn btn-outline btn-sm">Visitar</a>
                         </div>
                     </div>
                 </section>
 
-                <!-- Support Support Callout -->
+                <!-- Support Callout -->
                 <section class="section">
-                    <div class="summary-box">
+                    <div class="support-callout">
                         <h3 class="weight-bold mb-2">¿Necesitas ayuda?</h3>
                         <p class="text-sm">Si tienes problemas para visualizar los recursos, contacta al soporte técnico o revisa tu conexión a internet.</p>
                     </div>
