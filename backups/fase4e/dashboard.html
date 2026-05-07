@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | LMS CNDPR</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script type="module" src="scripts/auth-guard.js"></script>
+</head>
+<body>
+    <div class="app-shell">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <a href="dashboard.html" class="sidebar-brand">
+                <div class="logo-placeholder" style="width: 40px; height: 40px; background: var(--color-primary); border-radius: var(--radius-sm); display: grid; place-items: center; color: white; font-weight: bold;">L</div>
+                <span>LMS CNDPR</span>
+            </a>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-link is-active" aria-current="page">
+                    <span class="icon">🏠</span>
+                    <span>Dashboard</span>
+                </a>
+                
+                <div class="meta-label p-4 mb-0" style="padding: var(--space-4) var(--space-4) 0; font-size: var(--text-xs); color: var(--color-text-faint);">Módulos</div>
+                <a href="modulo1_intro.html" class="nav-link">
+                    <span class="icon">📘</span>
+                    <span>Módulo 1</span>
+                </a>
+                <a href="modulo2_intro.html" class="nav-link">
+                    <span class="icon">📗</span>
+                    <span>Módulo 2</span>
+                </a>
+                <a href="modulo3_intro.html" class="nav-link">
+                    <span class="icon">📙</span>
+                    <span>Módulo 3</span>
+                </a>
+                
+                <hr class="mt-4 mb-4">
+                <a href="perfil.html" class="nav-link">
+                    <span class="icon">👤</span>
+                    <span>Mi Perfil</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="avatar avatar-sm">U</div>
+                    <div class="user-info">
+                        <div class="text-sm weight-bold" style="font-weight: var(--weight-bold);">Estudiante</div>
+                        <div class="text-xs text-muted">Online</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="topbar-title">Panel Principal</div>
+                <div class="topbar-actions">
+                    <div class="cluster">
+                        <span class="status-pill">En curso</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-wrapper">
+                <header class="page-header">
+                    <h1 class="page-title">Bienvenido de nuevo, [USUARIO]</h1>
+                    <p class="text-muted">Continúa con tu aprendizaje hoy.</p>
+                </header>
+
+                <div class="grid" style="--grid-cols: 1; --grid-gap: var(--space-8);">
+                    <!-- Course Modules Grid -->
+                    <section class="section">
+                        <h2 class="section-title mb-4">Tus Módulos</h2>
+                        <div class="auto-grid" style="--grid-min: 300px; gap: var(--space-6);">
+                            <!-- Module 1 Card -->
+                            <article class="card">
+                                <div class="card-header">
+                                    <div class="badge badge-primary mb-2">Módulo 1</div>
+                                    <h3 class="card-title">Introducción a [TEMA 1]</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p class="text-sm text-muted mb-4">Aprende las bases de [TEMA] y su aplicación en el entorno actual.</p>
+                                    <div class="split" style="align-items: center;">
+                                        <span class="text-xs weight-bold">Progreso: 0%</span>
+                                        <a href="modulo1_intro.html" class="btn btn-primary btn-sm">EMPEZAR</a>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- More modules could be added here -->
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="scripts/firebase-config.js"></script>
+</body>
+</html>
