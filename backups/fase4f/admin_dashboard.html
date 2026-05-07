@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrar Usuarios | LMS CNDPR</title>
+    <title>Panel Operativo | LMS CNDPR</title>
     <link rel="stylesheet" href="styles/main.css">
     <script type="module" src="scripts/auth-guard.js"></script>
     <script type="module" src="scripts/admin-guard.js"></script>
@@ -13,15 +13,16 @@
         <!-- Sidebar Navigation -->
         <aside class="sidebar" id="lms-sidebar">
             <a href="dashboard.html" class="sidebar-brand">
-                <img src="CNDPR-LOGO-transparent.png" alt="CNDPR" class="sidebar-logo">
+                <div class="logo-placeholder" style="width: 40px; height: 40px; background: var(--color-primary); border-radius: var(--radius-sm); display: grid; place-items: center; color: white; font-weight: bold;">L</div>
+                <span>Admin LMS</span>
             </a>
 
             <nav class="sidebar-nav">
-                <a href="admin_dashboard.html" class="nav-link">
+                <a href="admin_dashboard.html" class="nav-link is-active" aria-current="page">
                     <span class="icon">📊</span>
                     <span>Resumen</span>
                 </a>
-                <a href="admin_usuarios.html" class="nav-link is-active" aria-current="page">
+                <a href="admin_usuarios.html" class="nav-link">
                     <span class="icon">👥</span>
                     <span>Usuarios</span>
                 </a>
@@ -56,7 +57,7 @@
                 <button class="mobile-menu-button btn btn-ghost btn-icon" aria-label="Abrir menú de navegación" aria-controls="lms-sidebar" aria-expanded="false">
                     <span style="font-size: 24px;">☰</span>
                 </button>
-                <div class="topbar-title">Gestión de Participantes</div>
+                <div class="topbar-title">Panel de Control Administrativo</div>
                 <div class="topbar-actions">
                     <div class="cluster">
                         <span class="badge badge-info">Admin Mode</span>
@@ -67,40 +68,41 @@
             <!-- Page Content -->
             <div class="page-wrapper">
                 <header class="page-header">
-                    <h1 class="page-title">Directorio de Usuarios</h1>
-                    <p class="text-muted">Administra el acceso y visualiza el progreso de todos los participantes.</p>
+                    <h1 class="page-title">Resumen General</h1>
+                    <p class="text-muted">Estado actual de la plataforma y métricas de participación.</p>
                 </header>
 
                 <!-- KPI Section -->
                 <section class="section">
                     <div class="kpi-grid">
                         <article class="kpi-card">
-                            <div class="stat-label">Total Registrados</div>
-                            <div class="stat-value" id="metricTotal">0</div>
-                            <div class="trend">Usuarios</div>
+                            <div class="split">
+                                <div class="stat-label">Participantes</div>
+                                <div>👥</div>
+                            </div>
+                            <div class="stat-value" id="totalUsers">0</div>
+                            <div class="trend">Registrados</div>
                         </article>
                         <article class="kpi-card">
-                            <div class="stat-label">Activos</div>
-                            <div class="stat-value" id="metricActive" style="color: var(--color-success);">0</div>
-                            <div class="trend">En plataforma</div>
+                            <div class="split">
+                                <div class="stat-label">Anuncios</div>
+                                <div>📢</div>
+                            </div>
+                            <div class="stat-value" id="totalAnnouncements">0</div>
+                            <div class="trend">Publicados</div>
                         </article>
                     </div>
                 </section>
 
-                <!-- Table Section -->
+                <!-- Quick Actions Panel -->
                 <section class="section">
-                    <div class="card">
-                        <div class="card-header">
-                            <h2 class="card-title">Lista de Usuarios</h2>
-                        </div>
-                        <div class="card-body p-0" style="padding: 0;">
-                            <div class="table-wrapper" style="border: 0; box-shadow: none; border-radius: 0;">
-                                <div id="usersList" class="users-list">
-                                    <div class="empty-state">
-                                        <div class="empty-state-icon">👥</div>
-                                        <p>Buscando usuarios en la base de datos...</p>
-                                    </div>
-                                </div>
+                    <h2 class="section-title mb-4" style="margin-bottom: var(--space-4);">Acciones Rápidas</h2>
+                    <div class="auto-grid">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title">Gestión de Usuarios</h3>
+                                <p class="text-sm text-muted mb-4" style="margin-bottom: var(--space-4);">Administra el acceso y los estados de los participantes.</p>
+                                <a href="admin_usuarios.html" class="btn btn-outline w-full">Ver Usuarios</a>
                             </div>
                         </div>
                     </div>
