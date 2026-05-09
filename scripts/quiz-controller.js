@@ -160,9 +160,7 @@ const QuizApp = {
         const result = { correct, total: QUESTIONS.length, score, passed, answers };
         sessionStorage.setItem(KEY_RESULT, JSON.stringify(result));
         sessionStorage.setItem(KEY_PASSED, passed ? 'true' : 'false');
-        if (passed) {
-            sessionStorage.setItem(KEY_STUDENT, 'Dra. Ana M. Rodríguez Vega');
-        }
+        sessionStorage.setItem(KEY_STUDENT, 'Dra. Ana M. Rodríguez Vega');
 
         // Bloquear todos los inputs y el botón de envío
         document.querySelectorAll('#quiz-questions input[type="radio"]').forEach(el => {
@@ -230,10 +228,11 @@ const QuizApp = {
                         ? 'Ha cumplido el requisito mínimo de aprobación (70%).'
                         : 'Se requiere un mínimo de 70% para aprobar (4 de 5 correctas).'}
                 </p>
-                ${passed
-                    ? `<a href="certificado_modulo1.html" style="display: inline-block; margin-top: var(--space-6); padding: var(--space-3) var(--space-8); background: var(--color-primary); color: var(--color-text-inverse); border-radius: var(--radius-pill); font-weight: var(--weight-bold); text-decoration: none; font-size: var(--text-sm);">🏆 Acceder a mi Certificado</a>`
-                    : `<p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--color-text-muted);">Ha utilizado su único intento para esta evaluación. Revise la retroalimentación de cada pregunta para reforzar los contenidos del módulo.</p>`
-                }
+                ${!passed ? `
+                <div style="margin-top: var(--space-6); padding: var(--space-4); background: var(--color-warning-soft); color: var(--color-warning); border-radius: var(--radius-md); border-left: 4px solid var(--color-warning); font-size: var(--text-xs); text-align: left;">
+                    ⚠️ MODO DEMO — En la versión de producción solo participantes que aprueban con ≥70% acceden al certificado. Este acceso es exclusivo del prototipo demostrativo.
+                </div>` : ''}
+                <a href="certificado_modulo1.html" style="display: inline-block; margin-top: var(--space-4); padding: var(--space-3) var(--space-8); background: ${passed ? 'var(--color-primary)' : 'transparent'}; color: ${passed ? 'var(--color-text-inverse)' : 'var(--color-text-muted)'}; border-radius: var(--radius-pill); font-weight: var(--weight-bold); text-decoration: none; font-size: var(--text-sm); border: 1px solid ${passed ? 'var(--color-primary)' : 'var(--color-border)'};">🏆 Acceder a mi Certificado</a>
             </div>
         `;
 
@@ -243,12 +242,14 @@ const QuizApp = {
     // ── Activar enlace al certificado en el footer de navegación ────────────
 
     _updateCertLink(passed) {
-        if (!passed) return;
         const link = document.getElementById('cert-link');
         if (!link) return;
         link.style.pointerEvents = 'auto';
         link.style.opacity       = '1';
-        link.className           = link.className.replace('btn-ghost', 'btn-primary');
+        if (passed) {
+            link.className = link.className.replace('btn-ghost', 'btn-primary');
+        }
+        // If not passed: cert-link becomes active but keeps btn-ghost style
     },
 
     // ── Restaurar estado si ya existe resultado en la sesión ─────────────────
