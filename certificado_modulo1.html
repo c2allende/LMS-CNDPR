@@ -402,14 +402,25 @@
     <script src="scripts/ui-controller.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const passed = sessionStorage.getItem('quiz_passed') === 'true';
+        const quizPassed = sessionStorage.getItem('quiz_passed');
 
-        if (!passed) {
+        // Sin intento registrado → bloquear acceso
+        if (quizPassed === null) {
             document.getElementById('cert-blocked').style.display = 'block';
             return;
         }
 
+        // Quiz intentado (aprobado o reprobado) → mostrar certificado
         document.getElementById('cert-content').style.display = 'block';
+
+        // Banda de advertencia MODO DEMO si no aprobó
+        if (quizPassed !== 'true') {
+            const demoBand = document.createElement('div');
+            demoBand.style.cssText = 'background: var(--color-warning-soft); color: var(--color-warning); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-3) var(--space-5); font-size: var(--text-xs); font-weight: var(--weight-medium); margin-bottom: var(--space-6);';
+            demoBand.textContent = '⚠️ MODO DEMO — Certificado mostrado con fines demostrativos. En producción solo se genera al aprobar el quiz con ≥70%.';
+            const certContent = document.getElementById('cert-content');
+            certContent.insertBefore(demoBand, certContent.firstChild);
+        }
 
         const studentName = sessionStorage.getItem('student_name') || 'Dra. Ana M. Rodríguez Vega';
         document.getElementById('cert-student-name').textContent = studentName;
