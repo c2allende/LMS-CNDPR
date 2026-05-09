@@ -7,18 +7,22 @@
     <link rel="stylesheet" href="styles/main.css">
     <script type="module" src="scripts/auth-guard.js"></script>
     <style>
+        /* ── Documento certificado ─────────────────────────────────────────── */
         #certificate-body {
             position: relative;
             overflow: hidden;
-            max-width: 48rem;
-            margin: var(--space-8) auto;
-            padding: var(--space-10);
-            background: var(--color-surface);
-            border: 3px double var(--color-primary);
-            border-radius: var(--radius-lg);
+            max-width: 68rem;
+            margin: var(--space-6) auto;
+            padding: var(--space-8) var(--space-10);
+            background: #fff;
+            border: 2px solid var(--color-border);
             box-shadow: var(--shadow-lg);
-            font-family: var(--font-display);
+            font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+            font-size: 0.9rem;
+            color: #222;
         }
+
+        /* Marca de agua diagonal */
         #certificate-body::before {
             content: 'PROTOTIPO';
             position: absolute;
@@ -26,164 +30,235 @@
             left: 50%;
             transform: translate(-50%, -50%) rotate(-30deg);
             font-size: 8rem;
-            font-weight: var(--weight-bold);
+            font-weight: 900;
             color: var(--color-error);
-            opacity: 0.10;
+            opacity: 0.08;
             pointer-events: none;
             white-space: nowrap;
             z-index: 0;
         }
-        #certificate-body .cert-header {
-            text-align: center;
-            border-bottom: 2px solid var(--color-primary);
-            padding-bottom: var(--space-6);
-            margin-bottom: var(--space-6);
+
+        /* Todo el contenido del certificado debe estar sobre la marca de agua */
+        #certificate-body > * {
+            position: relative;
+            z-index: 1;
         }
-        #certificate-body .cert-institution {
-            font-size: var(--text-lg);
-            font-weight: var(--weight-bold);
-            color: var(--color-primary);
+
+        /* ── Encabezado institucional ────────────────────────────────────── */
+        #cert-institution-name {
+            font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+            font-style: italic;
+            font-size: 1.8rem;
+            font-weight: normal;
+            text-align: center;
+            color: #111;
+            line-height: 1.2;
+            margin: 0;
+        }
+        #cert-address-line {
+            text-align: center;
+            font-size: 0.78rem;
+            color: #555;
+            margin-top: 0.2rem;
+            letter-spacing: 0.02em;
+        }
+        #cert-provider-line {
+            text-align: center;
+            font-size: 0.78rem;
+            color: #555;
+            margin-top: 0.1rem;
+        }
+        #cert-header-divider {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 0.6rem 0 0;
+        }
+
+        /* ── Título grande cursivo ───────────────────────────────────────── */
+        #cert-main-title {
+            font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+            font-style: italic;
+            font-size: 2.8rem;
+            font-weight: normal;
+            text-align: center;
+            color: #111;
+            line-height: 1.1;
+            margin: 0.4rem 0 1rem;
             letter-spacing: -0.01em;
-            text-transform: uppercase;
         }
-        #certificate-body .cert-address {
-            font-size: var(--text-xs);
-            color: var(--color-text-muted);
-            margin-top: var(--space-1);
-        }
-        #certificate-body .cert-provider {
-            font-size: var(--text-xs);
-            color: var(--color-text-faint);
-            margin-top: var(--space-1);
-            font-style: italic;
-        }
-        #certificate-body .cert-title {
-            font-size: var(--text-2xl);
-            font-weight: var(--weight-bold);
-            color: var(--color-text);
-            text-align: center;
-            margin: var(--space-6) 0 var(--space-4);
-            letter-spacing: -0.02em;
-        }
-        #certificate-body .cert-certifies {
-            text-align: center;
-            font-size: var(--text-sm);
-            color: var(--color-text-muted);
-            margin-bottom: var(--space-2);
-        }
-        #certificate-body .cert-name {
-            text-align: center;
-            font-size: var(--text-xl);
-            font-weight: var(--weight-bold);
-            color: var(--color-primary);
-            border-bottom: 1px solid var(--color-border);
-            padding-bottom: var(--space-2);
-            margin-bottom: var(--space-6);
-        }
-        #certificate-body .cert-field-row {
+
+        /* ── Filas de campos ─────────────────────────────────────────────── */
+        .c-row {
             display: flex;
-            gap: var(--space-6);
-            margin-bottom: var(--space-3);
-            font-size: var(--text-sm);
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-bottom: 0.55rem;
+            font-size: 0.88rem;
         }
-        #certificate-body .cert-field-label {
-            color: var(--color-text-muted);
-            min-width: 10rem;
+        .c-label {
+            white-space: nowrap;
             flex-shrink: 0;
+            color: #333;
         }
-        #certificate-body .cert-field-value {
-            color: var(--color-text);
-            font-weight: var(--weight-medium);
-            border-bottom: 1px dotted var(--color-border);
+        .c-value {
+            border-bottom: 1px solid #333;
             flex: 1;
+            padding-bottom: 1px;
+            min-height: 1.3em;
+            color: #111;
         }
-        #certificate-body .cert-activity-title {
-            font-style: italic;
-            color: var(--color-text);
+        .c-value-bold {
+            font-weight: bold;
+            font-size: 1.1rem;
         }
-        #certificate-body .cert-profession-row {
-            display: flex;
-            gap: var(--space-8);
-            margin-bottom: var(--space-3);
-            font-size: var(--text-sm);
-        }
-        #certificate-body .cert-profession-option {
-            display: flex;
-            align-items: center;
-            gap: var(--space-2);
-            color: var(--color-text);
-        }
-        #certificate-body .cert-check {
+
+        /* ── Fila de profesión ────────────────────────────────────────────── */
+        .c-checkbox {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 1.1rem;
-            height: 1.1rem;
-            border: 1.5px solid var(--color-text);
-            border-radius: 2px;
-            font-size: 0.7rem;
-            font-weight: var(--weight-bold);
+            width: 0.9rem;
+            height: 0.9rem;
+            border: 1px solid #333;
+            font-size: 0.65rem;
+            font-weight: bold;
             flex-shrink: 0;
+            margin-right: 0.2rem;
+            vertical-align: middle;
         }
-        #certificate-body .cert-hours {
-            font-size: var(--text-2xl);
-            font-weight: var(--weight-bold);
-            color: var(--color-primary);
+        .c-profession-group {
+            display: flex;
+            gap: 2rem;
+            align-items: baseline;
+            flex-wrap: wrap;
         }
-        #certificate-body .cert-signatures {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-8);
-            margin-top: var(--space-10);
-            padding-top: var(--space-6);
-            border-top: 1px solid var(--color-divider);
+
+        /* ── Fila licencia + registro en la misma línea ───────────────────── */
+        .c-row-split {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 0.55rem;
+            font-size: 0.88rem;
         }
-        #certificate-body .cert-signature-line {
-            border-top: 1px solid var(--color-text);
-            padding-top: var(--space-2);
-            font-size: var(--text-xs);
-            color: var(--color-text-muted);
+        .c-row-split .c-pair {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+        .c-row-split .c-pair .c-value {
+            min-width: 4rem;
+            flex: none;
+        }
+
+        /* ── Fecha con sub-etiquetas ─────────────────────────────────────── */
+        .c-fecha-group {
+            display: flex;
+            align-items: flex-end;
+            gap: 1rem;
+        }
+        .c-fecha-cell {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .c-fecha-cell .c-value {
+            text-align: center;
+            min-width: 2.2rem;
+            flex: none;
+        }
+        .c-fecha-sublabel {
+            font-size: 0.6rem;
+            color: #888;
+            margin-top: 1px;
             text-align: center;
         }
-        #certificate-body .cert-seal {
-            text-align: center;
-            margin: var(--space-6) 0;
+
+        /* ── Horas EC ────────────────────────────────────────────────────── */
+        #cert-hours-value {
+            font-weight: bold;
+            font-size: 1rem;
+            margin-left: 0.3rem;
         }
-        #certificate-body .cert-validation {
-            text-align: center;
-            margin-top: var(--space-6);
-            padding-top: var(--space-4);
-            border-top: 1px dotted var(--color-divider);
-            font-size: var(--text-xs);
-            color: var(--color-text-faint);
+
+        /* ── Sección inferior: firmas + sello ─────────────────────────────── */
+        #cert-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 1.2rem;
+            padding-top: 0.4rem;
+            border-top: 1px solid #ccc;
         }
-        #certificate-body .cert-demo-badge {
+        #cert-signatures {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            min-width: 16rem;
+        }
+        .cert-sig-block {
+            display: flex;
+            flex-direction: column;
+        }
+        .cert-sig-line-space {
+            height: 2.8rem;
+        }
+        .cert-sig-underline {
+            border-top: 1px solid #333;
+            font-size: 0.75rem;
+            color: #555;
+            padding-top: 2px;
             text-align: center;
-            margin-top: var(--space-4);
-            font-size: var(--text-xs);
+            min-width: 14rem;
+        }
+        #cert-seal-area {
+            flex-shrink: 0;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        /* ── Código de validación pie ────────────────────────────────────── */
+        #cert-footer {
+            margin-top: 0.6rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            font-size: 0.72rem;
+            color: #888;
+        }
+        #cert-demo-badge-text {
+            font-size: 0.7rem;
             color: var(--color-warning);
             font-style: italic;
         }
+
+        /* ── @media print ────────────────────────────────────────────────── */
         @media print {
+            @page { size: letter landscape; margin: 0.4in; }
+
             [role="alert"],
             .app-shell > .sidebar,
             .topbar,
             #print-btn,
             .lesson-nav,
-            .page-header p,
+            .page-header,
             #cert-demo-notice {
                 display: none !important;
             }
+            .app-shell,
             .main-content {
-                padding: 0 !important;
+                display: block !important;
+                height: auto !important;
+                overflow: visible !important;
             }
             .page-wrapper {
                 padding: 0 !important;
             }
             #certificate-body {
-                border: 2px solid #000 !important;
+                border: 1px solid #999 !important;
                 box-shadow: none !important;
                 margin: 0 auto !important;
+                max-width: 100% !important;
+                padding: 0.5in 0.6in !important;
             }
         }
     </style>
@@ -259,16 +334,16 @@
 
             <div class="page-wrapper">
 
-                <!-- Blocked state — shown if quiz was not passed -->
+                <!-- Blocked state — shown if quiz not attempted -->
                 <div id="cert-blocked" style="display: none;">
                     <div class="instruction-box">
                         <h2 class="weight-bold">Acceso restringido</h2>
-                        <p>Esta página solo está disponible para participantes que han completado y aprobado la evaluación del Módulo 1 con una nota mínima de 70%.</p>
+                        <p>Esta página solo está disponible para participantes que han completado la evaluación del Módulo 1.</p>
                         <a href="evaluacion_modulo1.html" class="btn btn-primary" style="margin-top: var(--space-4); display: inline-block;">Ir a la Evaluación</a>
                     </div>
                 </div>
 
-                <!-- Certificate — shown only if quiz passed -->
+                <!-- Certificate — shown after any quiz attempt -->
                 <div id="cert-content" style="display: none;">
 
                     <div class="page-header">
@@ -280,103 +355,121 @@
                         <p class="text-sm">Este certificado fue generado por el prototipo LMS-CNDPR con fines de demostración. No es un documento oficial del CNDPR ni de la Junta Examinadora de Nutricionistas-Dietistas de Puerto Rico y no acredita horas de educación continuada reales.</p>
                     </div>
 
-                    <!-- Certificate document -->
+                    <!-- ══ CERTIFICATE DOCUMENT ════════════════════════════════ -->
                     <div id="certificate-body">
-                        <div class="cert-header">
-                            <img src="CNDPR-LOGO-transparent.png" alt="CNDPR" style="height: 3.5rem; margin-bottom: var(--space-3);">
-                            <p class="cert-institution">Colegio de Nutricionistas y Dietistas de Puerto Rico</p>
-                            <p class="cert-address">P.O. BOX 362471 — San Juan, Puerto Rico 00936-2471</p>
-                            <p class="cert-provider">Proveedor Número 00062</p>
+
+                        <!-- Encabezado institucional -->
+                        <p id="cert-institution-name">Colegio de Nutricionistas y Dietistas de Puerto Rico</p>
+                        <p id="cert-address-line">P. O. BOX 362471—SAN JUAN, PUERTO RICO 00936-2471</p>
+                        <p id="cert-provider-line">Proveedor Número 00062</p>
+                        <hr id="cert-header-divider">
+
+                        <!-- Título grande cursivo -->
+                        <p id="cert-main-title">Certificado de Educación Continuada</p>
+
+                        <!-- Nombre -->
+                        <div class="c-row">
+                            <span class="c-label">Nombre:</span>
+                            <span class="c-value c-value-bold" id="cert-student-name">Dra. Ana M. Rodríguez Vega</span>
                         </div>
 
-                        <h2 class="cert-title">Certificado de Educación Continuada</h2>
+                        <!-- Profesión -->
+                        <div class="c-row">
+                            <span class="c-label">Profesión:</span>
+                            <div class="c-profession-group">
+                                <span>
+                                    <span class="c-checkbox">X</span> Nutricionista – Dietista
+                                </span>
+                                <span>
+                                    <span class="c-checkbox">&nbsp;</span> Otro:
+                                    <span style="display: inline-block; border-bottom: 1px solid #333; min-width: 7rem; margin-left: 0.2rem;">&nbsp;</span>
+                                </span>
+                            </div>
+                        </div>
 
-                        <p class="cert-certifies">Se certifica que:</p>
-                        <p class="cert-name" id="cert-student-name">Dra. Ana M. Rodríguez Vega</p>
+                        <!-- Licencia + Registro en la misma línea -->
+                        <div class="c-row-split">
+                            <div class="c-pair">
+                                <span class="c-label">Número de Licencia:</span>
+                                <span class="c-value" id="cert-license">1234</span>
+                            </div>
+                            <div class="c-pair">
+                                <span class="c-label">Número de Registro:</span>
+                                <span class="c-value" id="cert-registration">100001</span>
+                            </div>
+                        </div>
 
-                        <div class="cert-field-row">
-                            <span class="cert-field-label">Profesión:</span>
-                            <div style="flex: 1; font-size: var(--text-sm);">
-                                <div class="cert-profession-row">
-                                    <div class="cert-profession-option">
-                                        <span class="cert-check">✕</span>
-                                        <span>Nutricionista – Dietista</span>
-                                    </div>
-                                    <div class="cert-profession-option">
-                                        <span class="cert-check"></span>
-                                        <span>Técnico en Nutrición y Dietética</span>
-                                    </div>
+                        <!-- Título de la actividad -->
+                        <div class="c-row">
+                            <span class="c-label" style="white-space: nowrap;">Título de la Actividad:</span>
+                            <span class="c-value" style="font-style: italic;">Manejo Nutricional de la Diabetes Tipo 2: Actualización Clínica — Módulo 1</span>
+                        </div>
+
+                        <!-- Código -->
+                        <div class="c-row">
+                            <span class="c-label">Código:</span>
+                            <span class="c-value">EC-2026-001</span>
+                        </div>
+
+                        <!-- Fecha con sub-etiquetas día/mes/año -->
+                        <div class="c-row">
+                            <span class="c-label">Fecha:</span>
+                            <div class="c-fecha-group">
+                                <div class="c-fecha-cell">
+                                    <span class="c-value" id="cert-day">—</span>
+                                    <span class="c-fecha-sublabel">Día</span>
+                                </div>
+                                <div class="c-fecha-cell">
+                                    <span class="c-value" id="cert-month">—</span>
+                                    <span class="c-fecha-sublabel">Mes</span>
+                                </div>
+                                <div class="c-fecha-cell">
+                                    <span class="c-value" id="cert-year" style="min-width: 3rem;">—</span>
+                                    <span class="c-fecha-sublabel">Año</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="cert-field-row">
-                            <span class="cert-field-label">Número de Licencia:</span>
-                            <span class="cert-field-value" id="cert-license">1234</span>
+                        <!-- Lugar -->
+                        <div class="c-row">
+                            <span class="c-label">Lugar:</span>
+                            <span class="c-value">Plataforma virtual LMS-CNDPR</span>
                         </div>
 
-                        <div class="cert-field-row">
-                            <span class="cert-field-label">Núm. de Registro:</span>
-                            <span class="cert-field-value" id="cert-registration">100001</span>
+                        <!-- Horas EC -->
+                        <div class="c-row" style="margin-top: 0.3rem;">
+                            <span class="c-label">Horas de Educación Continuada:</span>
+                            <span id="cert-hours-value">7.00</span>
                         </div>
 
-                        <div style="margin: var(--space-6) 0; padding: var(--space-4) 0; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider);">
-                            <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-2);">Completó satisfactoriamente la actividad educativa:</p>
-                            <p class="cert-activity-title" style="font-size: var(--text-md); font-weight: var(--weight-semibold);">
-                                "Manejo Nutricional de la Diabetes Tipo 2: Actualización Clínica — Módulo 1"
-                            </p>
-                        </div>
-
-                        <div class="cert-field-row">
-                            <span class="cert-field-label">Código de actividad:</span>
-                            <span class="cert-field-value">EC-2026-001</span>
-                        </div>
-
-                        <div class="cert-field-row">
-                            <span class="cert-field-label">Fecha de completación:</span>
-                            <span class="cert-field-value" id="cert-date">—</span>
-                        </div>
-
-                        <div class="cert-field-row">
-                            <span class="cert-field-label">Lugar:</span>
-                            <span class="cert-field-value">Plataforma virtual LMS-CNDPR</span>
-                        </div>
-
-                        <div style="text-align: center; margin: var(--space-6) 0;">
-                            <p style="font-size: var(--text-sm); color: var(--color-text-muted);">Horas de Educación Continuada:</p>
-                            <p class="cert-hours">5.00 horas</p>
-                        </div>
-
-                        <!-- Seal -->
-                        <div class="cert-seal">
-                            <img src="CNDPR-LOGO-transparent.png" alt="Sello CNDPR" style="height: 4rem; opacity: 0.25;">
-                        </div>
-
-                        <!-- Signatures -->
-                        <div class="cert-signatures">
-                            <div>
-                                <div style="height: 3rem;"></div>
-                                <div class="cert-signature-line">Oficial Certificador</div>
+                        <!-- Sección inferior: firmas + sello -->
+                        <div id="cert-bottom">
+                            <div id="cert-signatures">
+                                <div class="cert-sig-block">
+                                    <div class="cert-sig-line-space"></div>
+                                    <div class="cert-sig-underline">Firma del Oficial Certificador</div>
+                                </div>
+                                <div class="cert-sig-block">
+                                    <div class="cert-sig-line-space"></div>
+                                    <div class="cert-sig-underline">Firma del Presidente</div>
+                                </div>
                             </div>
-                            <div>
-                                <div style="height: 3rem;"></div>
-                                <div class="cert-signature-line">Presidente, CNDPR</div>
+                            <div id="cert-seal-area">
+                                <img src="CNDPR-LOGO-transparent.png" alt="Sello CNDPR" style="height: 6rem; opacity: 0.55;">
                             </div>
                         </div>
 
-                        <!-- Validation code -->
-                        <div class="cert-validation">
-                            <p>Código de validación: <strong id="cert-code">EC-2026-001-XXXXXX</strong></p>
-                            <p style="margin-top: var(--space-1);">Este certificado fue generado digitalmente. Verifique su autenticidad con el código anterior.</p>
+                        <!-- Pie: código de validación + badge demo -->
+                        <div id="cert-footer">
+                            <span id="cert-code">EC-2026-001-XXXXXX</span>
+                            <span id="cert-demo-badge-text">[PROTOTIPO DEMOSTRATIVO — No oficial]</span>
                         </div>
 
-                        <div class="cert-demo-badge">
-                            [PROTOTIPO DEMOSTRATIVO — No oficial]
-                        </div>
                     </div>
+                    <!-- ══ FIN CERTIFICATE DOCUMENT ══════════════════════════ -->
 
                     <!-- Actions -->
-                    <div style="text-align: center; margin-top: var(--space-8);">
+                    <div style="text-align: center; margin-top: var(--space-6);">
                         <button id="print-btn" type="button" class="btn btn-primary" onclick="window.print()">
                             🖨️ Imprimir / Guardar como PDF
                         </button>
@@ -422,13 +515,17 @@
             certContent.insertBefore(demoBand, certContent.firstChild);
         }
 
+        // Datos del participante
         const studentName = sessionStorage.getItem('student_name') || 'Dra. Ana M. Rodríguez Vega';
         document.getElementById('cert-student-name').textContent = studentName;
 
+        // Fecha: día, mes y año en campos separados
         const now = new Date();
-        const opts = { year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('cert-date').textContent = now.toLocaleDateString('es-PR', opts);
+        document.getElementById('cert-day').textContent   = String(now.getDate()).padStart(2, '0');
+        document.getElementById('cert-month').textContent = String(now.getMonth() + 1).padStart(2, '0');
+        document.getElementById('cert-year').textContent  = now.getFullYear();
 
+        // Código de validación dinámico
         const code = 'EC-2026-001-' + Math.random().toString(36).substring(2, 8).toUpperCase();
         document.getElementById('cert-code').textContent = code;
     });
