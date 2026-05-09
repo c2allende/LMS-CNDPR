@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -9,15 +9,18 @@
 </head>
 <body>
     <div class="app-shell">
+        <!-- Sidebar Navigation -->
         <aside class="sidebar" id="lms-sidebar">
             <a href="dashboard.html" class="sidebar-brand">
                 <img src="CNDPR-LOGO-transparent.png" alt="CNDPR" class="sidebar-logo">
             </a>
+            
             <nav class="sidebar-nav">
                 <a href="dashboard.html" class="nav-link is-active" aria-current="page">
                     <span class="icon">🏠</span>
                     <span>Dashboard</span>
                 </a>
+                
                 <div class="meta-label p-4 mb-0" style="padding: var(--space-4) var(--space-4) 0; font-size: var(--text-xs); color: var(--color-text-faint);">Módulos</div>
                 <a href="modulo1_intro.html" class="nav-link">
                     <span class="icon">📘</span>
@@ -31,24 +34,28 @@
                     <span class="icon">📙</span>
                     <span>Módulo 3</span>
                 </a>
+                
                 <hr class="mt-4 mb-4">
                 <a href="perfil.html" class="nav-link">
                     <span class="icon">👤</span>
                     <span>Mi Perfil</span>
                 </a>
             </nav>
+
             <div class="sidebar-footer">
                 <div class="sidebar-user">
-                    <div class="avatar avatar-sm">A</div>
+                    <div class="avatar avatar-sm">U</div>
                     <div class="user-info">
-                        <div class="text-sm weight-bold" style="font-weight: var(--weight-bold);">Dra. Ana M. Rodríguez</div>
-                        <div class="text-xs text-muted">Lic. 1234</div>
+                        <div class="text-sm weight-bold" style="font-weight: var(--weight-bold);">Estudiante</div>
+                        <div class="text-xs text-muted">Online</div>
                     </div>
                 </div>
             </div>
         </aside>
 
+        <!-- Main Content Area -->
         <main class="main-content">
+            <!-- Topbar -->
             <header class="topbar">
                 <button class="mobile-menu-button btn btn-ghost btn-icon" aria-label="Abrir menú de navegación" aria-controls="lms-sidebar" aria-expanded="false">
                     <span style="font-size: 24px;">☰</span>
@@ -56,39 +63,31 @@
                 <div class="topbar-title">Panel Principal</div>
                 <div class="topbar-actions">
                     <div class="cluster">
-                        <span class="status-pill is-pending">En curso</span>
+                        <span class="status-pill">En curso</span>
                     </div>
                 </div>
             </header>
 
+            <!-- Page Content -->
             <div class="page-wrapper">
-                <!-- Course Header -->
-                <header class="page-header">
-                    <span class="eyebrow">EC-2026-001 · Proveedor 00062 · 15.00 horas EC</span>
-                    <h1 class="page-title">Manejo Nutricional de la Diabetes Tipo 2: Actualización Clínica</h1>
-                    <p class="text-muted">Programa de educación continuada acreditado · 3 módulos</p>
-                </header>
-
                 <!-- Modules Section -->
                 <section class="section">
                     <div class="page-header with-actions">
                         <div>
                             <h2 class="section-title">Módulos del Curso</h2>
-                            <p class="text-muted">Completa los módulos para avanzar hacia tu certificado.</p>
+                            <p class="text-muted">Completa los módulos para avanzar en tu certificación.</p>
                         </div>
                     </div>
 
                     <div class="auto-grid" id="modulesGrid">
-
-                        <!-- Módulo 1 — Activo -->
+                        <!-- Módulo de Ejemplo 1 -->
                         <article class="module-card">
                             <div class="stack" style="--stack-gap: var(--space-4);">
                                 <div class="split">
                                     <span class="badge">Módulo 01</span>
                                     <span class="status-pill is-pending">En progreso</span>
                                 </div>
-                                <h3 class="card-title">Fisiopatología y Evaluación Nutricional en DM2</h3>
-                                <p class="text-sm text-muted">5.00 horas EC</p>
+                                <h3 class="card-title">Introducción al Curso</h3>
                                 <div class="course-progress">
                                     <div class="course-progress-header">
                                         <span>Progreso</span>
@@ -96,56 +95,35 @@
                                     </div>
                                     <div class="progress"><div class="progress-fill" style="width: 0%"></div></div>
                                 </div>
-                                <a href="modulo1_intro.html" class="btn btn-primary w-full">Continuar Módulo 1</a>
+                                <a href="modulo1_intro.html" class="btn btn-primary w-full">EMPEZAR</a>
                             </div>
                         </article>
 
-                        <!-- Módulo 2 — Próximamente -->
+                        <!-- Módulo de Ejemplo 2 -->
                         <article class="module-card">
                             <div class="stack" style="--stack-gap: var(--space-4);">
                                 <div class="split">
                                     <span class="badge">Módulo 02</span>
-                                    <span class="status-pill">Próximamente</span>
+                                    <span class="status-pill">Bloqueado</span>
                                 </div>
-                                <h3 class="card-title">Terapia Médica Nutricional en DM2: Estrategias de Intervención</h3>
-                                <p class="text-sm text-muted">5.00 horas EC</p>
+                                <h3 class="card-title">Conceptos Avanzados</h3>
                                 <div class="course-progress">
                                     <div class="course-progress-header">
                                         <span>Progreso</span>
-                                        <span>—</span>
+                                        <span>0%</span>
                                     </div>
                                     <div class="progress"><div class="progress-fill" style="width: 0%"></div></div>
                                 </div>
-                                <button class="btn btn-outline w-full" disabled>Disponible próximamente</button>
+                                <button class="btn btn-outline w-full" disabled>BLOQUEADO</button>
                             </div>
                         </article>
-
-                        <!-- Módulo 3 — Próximamente -->
-                        <article class="module-card">
-                            <div class="stack" style="--stack-gap: var(--space-4);">
-                                <div class="split">
-                                    <span class="badge">Módulo 03</span>
-                                    <span class="status-pill">Próximamente</span>
-                                </div>
-                                <h3 class="card-title">Casos Clínicos y Práctica Profesional en DM2</h3>
-                                <p class="text-sm text-muted">5.00 horas EC</p>
-                                <div class="course-progress">
-                                    <div class="course-progress-header">
-                                        <span>Progreso</span>
-                                        <span>—</span>
-                                    </div>
-                                    <div class="progress"><div class="progress-fill" style="width: 0%"></div></div>
-                                </div>
-                                <button class="btn btn-outline w-full" disabled>Disponible próximamente</button>
-                            </div>
-                        </article>
-
                     </div>
                 </section>
             </div>
         </main>
     </div>
 
+    <!-- Scripts -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
