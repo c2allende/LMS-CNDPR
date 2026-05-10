@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Educación Continuada | LMS CNDPR</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+    <!-- NIVEL 1 — Banner demostrativo -->
+    <div role="alert" style="background: var(--color-warning-soft); color: var(--color-warning); padding: var(--space-2) var(--space-4); font-size: var(--text-xs); font-weight: var(--weight-medium); text-align: center; border-bottom: 1px solid var(--color-border);">
+        ⚠️ CONTENIDO DEMOSTRATIVO — Material de prototipo. No constituye educación continuada oficial del CNDPR.
+    </div>
+
+    <!-- ── Header público ──────────────────────────────────────────────────── -->
+    <header id="public-header" style="background: var(--color-surface); border-bottom: 1px solid var(--color-border); padding: var(--space-3) var(--space-8); display: flex; align-items: center; gap: var(--space-6); position: sticky; top: 0; z-index: var(--z-sticky); box-shadow: var(--shadow-xs);">
+        <a href="catalogo.html" style="display: flex; align-items: center; gap: var(--space-3); text-decoration: none; flex-shrink: 0;">
+            <img src="CNDPR-LOGO-transparent.png" alt="CNDPR" style="height: 2.25rem;">
+            <span style="font-weight: var(--weight-bold); font-size: var(--text-sm); color: var(--color-text);">LMS CNDPR</span>
+        </a>
+        <nav style="display: flex; gap: var(--space-5); margin-left: var(--space-4);">
+            <a href="catalogo.html" style="font-size: var(--text-sm); color: var(--color-primary); font-weight: var(--weight-medium); text-decoration: none;">Catálogo</a>
+            <a href="dashboard.html" style="font-size: var(--text-sm); color: var(--color-text-muted); text-decoration: none;">Mi Dashboard</a>
+            <a href="#" style="font-size: var(--text-sm); color: var(--color-text-muted); text-decoration: none;">Sobre CNDPR</a>
+        </nav>
+        <div id="header-auth" style="margin-left: auto; display: flex; align-items: center; gap: var(--space-3);">
+            <a href="index.html" class="btn btn-outline btn-sm">Iniciar sesión</a>
+        </div>
+    </header>
+
+    <!-- ── Hero ────────────────────────────────────────────────────────────── -->
+    <section style="background: var(--color-primary); color: var(--color-text-inverse); padding: var(--space-16) var(--space-8); text-align: center; position: relative; overflow: hidden;">
+        <span aria-hidden="true" style="position: absolute; top: var(--space-6); right: var(--space-12); font-size: 3.5rem; color: var(--color-secondary); opacity: 0.6; line-height: 1; pointer-events: none; font-weight: 900; user-select: none;">✦</span>
+        <span aria-hidden="true" style="position: absolute; bottom: var(--space-8); left: var(--space-10); font-size: 2rem; color: var(--color-secondary); opacity: 0.35; line-height: 1; pointer-events: none; font-weight: 900; user-select: none;">✦</span>
+
+        <div style="max-width: var(--container-md); margin: 0 auto;">
+            <span class="eyebrow" style="color: var(--color-secondary); margin-bottom: var(--space-4); display: block;">Colegio de Nutricionistas y Dietistas de Puerto Rico · Proveedor 00062</span>
+            <h1 style="font-size: var(--text-3xl); font-weight: var(--weight-bold); line-height: var(--leading-tight); margin: 0 0 var(--space-4);">
+                Educación Continuada para
+                <span style="text-decoration: underline; text-decoration-style: wavy; text-decoration-color: var(--color-secondary); text-underline-offset: 6px; white-space: nowrap;">Nutricionistas-Dietistas</span>
+            </h1>
+            <p style="font-size: var(--text-lg); color: rgba(255,255,255,0.8); max-width: 42rem; margin: 0 auto var(--space-8); line-height: var(--leading-relaxed);">Cumple tus requisitos bajo la Ley 82 con ofertas acreditadas, accesibles y desarrolladas por expertos en Puerto Rico.</p>
+            <div style="max-width: 32rem; margin: 0 auto; display: flex; gap: var(--space-2);">
+                <input id="search-input" type="search" class="input" placeholder="Buscar ofertas, temas o instructores…" style="flex: 1; background: var(--color-surface); color: var(--color-text);">
+                <button class="btn btn-sm" onclick="applyFilters()" style="background: var(--color-secondary); border-color: var(--color-secondary); color: var(--color-text-inverse); font-weight: var(--weight-bold); flex-shrink: 0; padding: 0 var(--space-5);">Buscar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Stats institucionales ────────────────────────────────────────────── -->
+    <section style="background: var(--color-surface); border-bottom: 1px solid var(--color-border); padding: var(--space-6) var(--space-8);">
+        <div style="max-width: var(--container-lg); margin: 0 auto; display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+            <div class="kpi-card" style="text-align: center; min-width: 11rem; border-left: 4px solid var(--color-primary);">
+                <div class="stat-value" style="color: var(--color-primary); font-size: var(--text-2xl);">10</div>
+                <div class="stat-label">Ofertas disponibles</div>
+                <div class="trend">cursos, talleres, lecturas y más</div>
+            </div>
+            <div class="kpi-card" style="text-align: center; min-width: 11rem; border-left: 4px solid var(--color-secondary);">
+                <div class="stat-value" style="color: var(--color-secondary); font-size: var(--text-2xl);">51</div>
+                <div class="stat-label">Horas EC disponibles</div>
+                <div class="trend">acreditadas Junta Examinadora</div>
+            </div>
+            <div class="kpi-card" style="text-align: center; min-width: 11rem; border-left: 4px solid var(--color-success);">
+                <div class="stat-value" style="color: var(--color-success); font-size: var(--text-2xl);">8</div>
+                <div class="stat-label">Instructores</div>
+                <div class="trend">profesionales licenciados</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Catálogo principal ───────────────────────────────────────────────── -->
+    <main style="max-width: var(--container-xl); margin: 0 auto; padding: var(--space-10) var(--space-8);">
+
+        <!-- Filtros por tipo -->
+        <div style="display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; margin-bottom: var(--space-6);">
+            <span style="font-size: var(--text-sm); color: var(--color-text-muted); flex-shrink: 0;">Filtrar por:</span>
+            <button id="filter-all"          class="btn btn-sm btn-primary" onclick="setFilter('all')"          data-filter="all">Todos</button>
+            <button id="filter-curso"        class="btn btn-sm btn-ghost"   onclick="setFilter('curso')"        data-filter="curso">🎓 Cursos</button>
+            <button id="filter-taller"       class="btn btn-sm btn-ghost"   onclick="setFilter('taller')"       data-filter="taller">🛠️ Talleres</button>
+            <button id="filter-lectura"      class="btn btn-sm btn-ghost"   onclick="setFilter('lectura')"      data-filter="lectura">📖 Lecturas</button>
+            <button id="filter-presentacion" class="btn btn-sm btn-ghost"   onclick="setFilter('presentacion')" data-filter="presentacion">🎤 Presentaciones</button>
+            <button id="filter-podcast"      class="btn btn-sm btn-ghost"   onclick="setFilter('podcast')"      data-filter="podcast">🎧 Podcasts</button>
+        </div>
+
+        <p id="results-count" style="font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-6);">Mostrando 10 ofertas</p>
+
+        <!-- Grid de tarjetas -->
+        <div id="catalog-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr)); gap: var(--space-6);"></div>
+
+        <!-- Estado vacío -->
+        <div id="empty-state" class="empty-state" style="display: none; padding: var(--space-16) var(--space-8);">
+            <div class="empty-state-icon">🔍</div>
+            <p>No se encontraron ofertas con ese criterio.</p>
+            <button class="btn btn-outline btn-sm" onclick="setFilter('all'); document.getElementById('search-input').value='';" style="margin-top: var(--space-4);">Ver todas las ofertas</button>
+        </div>
+
+        <!-- Banner Próximamente -->
+        <div style="margin-top: var(--space-12); padding: var(--space-8); border-radius: var(--radius-xl); background: var(--color-primary-subtle); border: 1px solid var(--color-primary-soft); text-align: center;">
+            <span style="font-size: 2rem;">🗓️</span>
+            <h3 style="font-size: var(--text-xl); font-weight: var(--weight-bold); margin: var(--space-3) 0 var(--space-2); color: var(--color-primary);">Próximamente — Nuevas ofertas cada mes</h3>
+            <p class="text-muted" style="max-width: 36rem; margin: 0 auto;">Estamos desarrollando nuevas ofertas de educación continuada en nutrición clínica, comunitaria, deportiva y más. Regresa pronto para nuevas actualizaciones.</p>
+        </div>
+    </main>
+
+    <!-- ── Footer institucional ─────────────────────────────────────────────── -->
+    <footer style="background: var(--color-primary); color: var(--color-text-inverse); padding: var(--space-10) var(--space-8); margin-top: var(--space-8);">
+        <div style="max-width: var(--container-lg); margin: 0 auto; display: flex; flex-wrap: wrap; gap: var(--space-8); justify-content: space-between; align-items: flex-start;">
+            <div>
+                <img src="CNDPR-LOGO-transparent.png" alt="CNDPR" style="height: 2.5rem; margin-bottom: var(--space-3);">
+                <p style="font-size: var(--text-sm); color: rgba(255,255,255,0.7); max-width: 20rem; line-height: var(--leading-relaxed);">Colegio de Nutricionistas y Dietistas de Puerto Rico. Proveedor de Educación Continuada Número 00062.</p>
+            </div>
+            <div>
+                <p style="font-size: var(--text-xs); font-weight: var(--weight-bold); text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.5); margin-bottom: var(--space-3);">Navegación</p>
+                <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+                    <a href="catalogo.html" style="font-size: var(--text-sm); color: rgba(255,255,255,0.8); text-decoration: none;">Catálogo</a>
+                    <a href="dashboard.html" style="font-size: var(--text-sm); color: rgba(255,255,255,0.8); text-decoration: none;">Mi Dashboard</a>
+                    <a href="index.html" style="font-size: var(--text-sm); color: rgba(255,255,255,0.8); text-decoration: none;">Iniciar sesión</a>
+                </div>
+            </div>
+            <div>
+                <p style="font-size: var(--text-xs); font-weight: var(--weight-bold); text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.5); margin-bottom: var(--space-3);">Contacto</p>
+                <p style="font-size: var(--text-sm); color: rgba(255,255,255,0.7); line-height: var(--leading-relaxed);">P.O. BOX 362471<br>San Juan, Puerto Rico 00936-2471</p>
+            </div>
+        </div>
+        <div style="max-width: var(--container-lg); margin: var(--space-8) auto 0; padding-top: var(--space-6); border-top: 1px solid rgba(255,255,255,0.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4);">
+            <p style="font-size: var(--text-xs); color: rgba(255,255,255,0.45);">© 2026 CNDPR. Plataforma LMS en fase de prototipo.</p>
+            <p style="font-size: var(--text-xs); color: rgba(255,255,255,0.45);">Plataforma en fase de prototipo. Contenido demostrativo no oficial.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/catalog-data.js"></script>
+    <script>
+    const TYPE_CONFIG = {
+        curso:        { icon: '🎓', label: 'Curso',        color: 'var(--color-primary)',        bg: 'var(--color-primary-soft)' },
+        taller:       { icon: '🛠️', label: 'Taller',       color: 'var(--color-warning)',        bg: 'var(--color-warning-soft)' },
+        lectura:      { icon: '📖', label: 'Lectura',      color: 'var(--color-success)',        bg: 'var(--color-success-soft)' },
+        presentacion: { icon: '🎤', label: 'Presentación', color: 'var(--domain-investigacion)', bg: 'var(--domain-investigacion-soft)' },
+        podcast:      { icon: '🎧', label: 'Podcast',      color: 'var(--domain-pediatrica)',   bg: 'var(--domain-pediatrica-soft)' },
+    };
+
+    let activeFilter = 'all';
+
+    function setFilter(type) {
+        activeFilter = type;
+        document.querySelectorAll('[data-filter]').forEach(btn => {
+            btn.className = btn.dataset.filter === type
+                ? 'btn btn-sm btn-primary'
+                : 'btn btn-sm btn-ghost';
+        });
+        applyFilters();
+    }
+
+    function applyFilters() {
+        const query = document.getElementById('search-input').value;
+        let results = searchOfferings(query);
+        if (activeFilter !== 'all') {
+            results = results.filter(o => o.type === activeFilter);
+        }
+        renderCards(results);
+    }
+
+    function renderCards(offerings) {
+        const grid    = document.getElementById('catalog-grid');
+        const empty   = document.getElementById('empty-state');
+        const count   = document.getElementById('results-count');
+
+        if (offerings.length === 0) {
+            grid.style.display  = 'none';
+            empty.style.display = 'block';
+            count.textContent   = 'Sin resultados';
+            return;
+        }
+
+        grid.style.display  = 'grid';
+        empty.style.display = 'none';
+        count.textContent   = `Mostrando ${offerings.length} oferta${offerings.length !== 1 ? 's' : ''}`;
+
+        const enrollments = JSON.parse(sessionStorage.getItem('lms_enrollments') || '["dm2-actualizacion-clinica"]');
+
+        grid.innerHTML = offerings.map(o => {
+            const tc           = TYPE_CONFIG[o.type] || TYPE_CONFIG.curso;
+            const isEnrolled   = enrollments.includes(o.id);
+            const instructorShort = o.instructor.split(',')[0];
+            const hoursLabel   = `${o.hours % 1 === 0 ? o.hours.toFixed(0) : o.hours.toFixed(2)} h EC`;
+            const modulesInfo  = o.modules ? `${o.modules.length} módulos · ` : '';
+
+            return `
+                <article class="card" style="display:flex;flex-direction:column;transition:box-shadow 0.15s,transform 0.15s;" onmouseenter="this.style.boxShadow='var(--shadow-md)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.boxShadow='';this.style.transform=''">
+                    <div class="card-body" style="flex:1;display:flex;flex-direction:column;gap:var(--space-3);">
+                        <div class="split">
+                            <div style="display:flex;align-items:center;gap:var(--space-2);background:${tc.bg};color:${tc.color};padding:var(--space-1) var(--space-3);border-radius:var(--radius-pill);width:fit-content;">
+                                <span style="font-size:0.85rem;">${tc.icon}</span>
+                                <span style="font-size:var(--text-xs);font-weight:var(--weight-bold);">${tc.label}</span>
+                            </div>
+                            ${o.premium ? '<span class="badge badge-warning">Premium</span>' : '<span class="badge">Gratis</span>'}
+                        </div>
+                        <h3 style="font-size:var(--text-md);font-weight:var(--weight-bold);line-height:var(--leading-snug);margin:0;color:var(--color-text);">${o.title}</h3>
+                        <p style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:var(--leading-normal);margin:0;flex:1;">${o.shortDescription}</p>
+                        <div style="display:flex;justify-content:space-between;align-items:flex-end;padding-top:var(--space-3);border-top:1px solid var(--color-divider);margin-top:auto;gap:var(--space-3);">
+                            <div>
+                                <p style="font-size:var(--text-xs);font-weight:var(--weight-bold);color:var(--color-text);margin:0;">${modulesInfo}${hoursLabel}</p>
+                                <p style="font-size:var(--text-xs);color:var(--color-text-muted);margin:var(--space-1) 0 0;">${instructorShort}</p>
+                                ${isEnrolled ? '<span style="font-size:var(--text-xs);color:var(--color-success);font-weight:var(--weight-bold);">✓ Matriculado</span>' : ''}
+                            </div>
+                            <a href="oferta_detalle.html?id=${o.id}" class="btn btn-outline btn-sm" style="flex-shrink:0;white-space:nowrap;">Ver más</a>
+                        </div>
+                    </div>
+                </article>`;
+        }).join('');
+    }
+
+    function initHeaderAuth() {
+        const name = sessionStorage.getItem('student_name');
+        if (!name) return;
+        document.getElementById('header-auth').innerHTML = `
+            <a href="dashboard.html" style="font-size:var(--text-sm);color:var(--color-text-muted);text-decoration:none;">Mi Dashboard</a>
+            <div class="avatar avatar-sm" style="background:var(--color-primary);color:var(--color-text-inverse);display:grid;place-items:center;font-size:var(--text-xs);font-weight:var(--weight-bold);border-radius:var(--radius-pill);cursor:pointer;">A</div>`;
+    }
+
+    document.getElementById('search-input').addEventListener('input', applyFilters);
+
+    document.addEventListener('DOMContentLoaded', () => {
+        initHeaderAuth();
+        renderCards(CATALOG_OFFERINGS);
+    });
+    </script>
+</body>
+</html>
