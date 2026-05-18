@@ -211,7 +211,8 @@
                 <a href="index.html" class="btn btn-primary w-full" style="text-align:center;display:block;">Iniciar sesión para inscribirme</a>
                 <p style="font-size:var(--text-xs);color:var(--color-text-muted);text-align:center;margin-top:var(--space-2);">Necesitas una cuenta para acceder a esta oferta.</p>`;
         } else if (enrolled) {
-            const target = offering.id === 'dm2-actualizacion-clinica' ? 'modulo1_intro.html' : 'dashboard.html';
+            const OFFER_TARGETS = { 'dm2-actualizacion-clinica': 'modulo1_intro.html', 'conteo-carbohidratos': 'taller_conteo_intro.html' };
+            const target = OFFER_TARGETS[offering.id] || 'dashboard.html';
             cta.innerHTML = `
                 <a href="${target}" class="btn btn-primary w-full" style="text-align:center;display:block;">▶ Continuar</a>
                 <p style="font-size:var(--text-xs);color:var(--color-success);text-align:center;margin-top:var(--space-2);font-weight:var(--weight-bold);">✓ Ya estás matriculado en esta oferta</p>`;

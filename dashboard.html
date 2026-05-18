@@ -108,7 +108,8 @@
 
     function renderEnrolledCard(o) {
         const tc = TYPE_CONFIG[o.type] || TYPE_CONFIG.curso;
-        const target = o.id === 'dm2-actualizacion-clinica' ? 'modulo1_intro.html' : `oferta_detalle.html?id=${o.id}`;
+        const OFFER_TARGETS = { 'dm2-actualizacion-clinica': 'modulo1_intro.html', 'conteo-carbohidratos': 'taller_conteo_intro.html' };
+        const target = OFFER_TARGETS[o.id] || `oferta_detalle.html?id=${o.id}`;
         const hoursLabel = o.hours % 1 === 0 ? `${o.hours.toFixed(0)} h EC` : `${o.hours.toFixed(2)} h EC`;
         const progressVal = o.progress || 0;
 
