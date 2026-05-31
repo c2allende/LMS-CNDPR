@@ -121,6 +121,7 @@ Estado: **prototipo demostrativo** — contenido no oficial.
 |---|---|
 | `lectura_microbiota_contenido-v2.html` | Pendiente aprobación — corrección tokens |
 | `lectura_microbiota_evaluacion-v2.html` | Pendiente aprobación — corrección tokens |
+| `perfil_v2_PROTOTIPO.html` | Pendiente aprobación — Repositorio de Certificados integrado |
 
 ---
 
@@ -141,6 +142,7 @@ Estado: **prototipo demostrativo** — contenido no oficial.
 | `podcast-quiz-controller.js` | externo | Quiz del Podcast La Nutrición y el Corazón |
 | `cho-calculator.js` | externo | Calculadora de carbohidratos |
 | `user-service.js` | externo | Operaciones de usuario en Firestore |
+| `perfil-certificados-controller.js` | externo | Repositorio de Certificados en perfil — Storage upload, contador horas EC, fecha renovación licencia |
 
 ### Orden de carga de scripts (obligatorio)
 ```html
@@ -295,6 +297,41 @@ grid: .cards-grid (auto-fill, minmax 260px)
 | `[nombre]-v3.html` | Tercera versión |
 | `data-page-id="[id]"` | Atributo en `<body>` para identificar la página |
 | `data-module-id="[id]"` | Atributo en `<body>` para identificar el módulo |
+
+---
+
+## Firestore — esquema del perfil de estudiante
+
+### Documento raíz `usuarios/{uid}`
+| Campo | Tipo | Descripción |
+|---|---|---|
+| `licenseRenewalDate` | string ISO (YYYY-MM-DD) | Fecha de renovación de licencia profesional |
+
+### Subcolección `usuarios/{uid}/certificados_plataforma`
+| Campo | Tipo | Descripción |
+|---|---|---|
+| `offerTitle` | string | Nombre de la oferta |
+| `offerType` | string | Tipo: curso, taller, lectura, presentación, podcast |
+| `completedAt` | Timestamp | Fecha de completado |
+| `hours` | number | Horas EC |
+| `validationCode` | string | Código del certificado |
+| `url` | string | Ruta relativa al HTML del certificado |
+
+### Subcolección `usuarios/{uid}/certificados_externos`
+| Campo | Tipo | Descripción |
+|---|---|---|
+| `name` | string | Nombre del certificado (requerido) |
+| `institution` | string \| null | Institución emisora (opcional) |
+| `date` | string ISO | Fecha de obtención (requerida) |
+| `hours` | number | Horas contacto — múltiplo de 0.5, mín 0.5 (requerido) |
+| `fileName` | string | Nombre original del PDF |
+| `fileSize` | number | Bytes |
+| `storagePath` | string | Ruta completa en Storage |
+| `fileUrl` | string | URL de descarga |
+| `uploadedAt` | Timestamp | Timestamp del servidor |
+
+### Storage
+`usuarios/{uid}/certificados-externos/{timestamp}_{filename}`
 
 ---
 
