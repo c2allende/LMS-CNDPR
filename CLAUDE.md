@@ -97,6 +97,14 @@ Estado: **prototipo demostrativo** — contenido no oficial.
 | `presentacion_plantbased_evaluacion.html` | Evaluación (5 preguntas, 80%) |
 | `presentacion_plantbased_certificado.html` | Certificado (código PB2025-XXXXXX) |
 
+### Oferta E5 — Podcast: La Nutrición y el Corazón (POD-2025-001 | 0.5h EC | Gratuito)
+| Archivo | Descripción |
+|---|---|
+| `podcast_nutricoracon_intro.html` | Intro del podcast |
+| `podcast_nutricoracon_episodio.html` | Apple Podcasts embed + transcripción con preguntas de reflexión |
+| `podcast_nutricoracon_evaluacion.html` | Evaluación (5 preguntas, 80%) |
+| `podcast_nutricoracon_certificado.html` | Certificado (código POD2025-XXXXXX) |
+
 ### Admin
 | Archivo | Descripción |
 |---|---|
@@ -130,6 +138,7 @@ Estado: **prototipo demostrativo** — contenido no oficial.
 | `taller-quiz-controller.js` | externo | Quiz del Taller CHO |
 | `lectura-microbiota-quiz-controller.js` | externo | Quiz de la Lectura Microbiota |
 | `presentacion-quiz-controller.js` | externo | Quiz de la Presentación Plant-Based |
+| `podcast-quiz-controller.js` | externo | Quiz del Podcast La Nutrición y el Corazón |
 | `cho-calculator.js` | externo | Calculadora de carbohidratos |
 | `user-service.js` | externo | Operaciones de usuario en Firestore |
 
@@ -253,6 +262,7 @@ grid: .cards-grid (auto-fill, minmax 260px)
 | Taller CHO | `taller_quiz_result` | `taller_quiz_passed` |
 | Lectura Microbiota | `quiz_lectura_microbiota_result` | `quiz_lectura_microbiota_passed` |
 | Presentación Plant-Based | `quiz_presentacion_plantbased_result` | `quiz_presentacion_plantbased_passed` |
+| Podcast Nutrición y Corazón | `quiz_podcast_nutricoracon_result` | `quiz_podcast_nutricoracon_passed` |
 
 ### Umbral de aprobación
 - Todas las evaluaciones: **80%** (4/5 preguntas correctas en quizzes de 5 preguntas)
@@ -272,7 +282,7 @@ grid: .cards-grid (auto-fill, minmax 260px)
 | `conteo-carbohidratos` | taller | Conteo CHO Avanzado | 3h | Gratis |
 | *(lectura microbiota)* | lectura | Microbiota Intestinal | 1h | Gratis |
 | *(plant-based)* | presentacion | Alimentación Plant-Based | 1h | Gratis |
-| *(síndrome metabólico)* | podcast | Conversación: Síndrome Metabólico | 0.5h | Gratis |
+| *(nutricoracon)* | podcast | La Nutrición y el Corazón | 0.5h | Gratis |
 
 ---
 
@@ -316,6 +326,7 @@ sessionStorage.student_name = 'Dra. Ana M. Rodríguez Vega'
 | DM2 / Lectura | Lcda. Sofía M. Berríos Colón | MS, RDN, LD, CDCES | SB |
 | Taller CHO | Lcda. María L. Torres Rivera | RDN, LD, CDCES | ML |
 | Presentación Plant-Based | Lcda. Sofía M. Berríos Colón | MS, RDN, LD, CDCES | SB |
+| Podcast Nutrición y Corazón | Lcda. Sofía M. Berríos Colón | MS, RDN, LD, CDCES | SB |
 | Coordinadora académica | Lcda. Sofía M. Berríos Colón, RD, CDE | — | — |
 
 ---
