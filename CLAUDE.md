@@ -89,6 +89,14 @@ Estado: **prototipo demostrativo** — contenido no oficial.
 | `lectura_microbiota_evaluacion.html` | Evaluación (5 preguntas, 80%) |
 | `lectura_microbiota_certificado.html` | Certificado |
 
+### Oferta E4 — Presentación Temática: Alimentación Plant-Based (PB-2025-001 | 1h EC | Gratuito)
+| Archivo | Descripción |
+|---|---|
+| `presentacion_plantbased_intro.html` | Intro de la presentación |
+| `presentacion_plantbased_slides.html` | Visor interactivo de 7 slides con pips, notas e índice |
+| `presentacion_plantbased_evaluacion.html` | Evaluación (5 preguntas, 80%) |
+| `presentacion_plantbased_certificado.html` | Certificado (código PB2025-XXXXXX) |
+
 ### Admin
 | Archivo | Descripción |
 |---|---|
@@ -121,6 +129,7 @@ Estado: **prototipo demostrativo** — contenido no oficial.
 | `quiz-controller.js` | externo | Quiz genérico (Módulo 1) |
 | `taller-quiz-controller.js` | externo | Quiz del Taller CHO |
 | `lectura-microbiota-quiz-controller.js` | externo | Quiz de la Lectura Microbiota |
+| `presentacion-quiz-controller.js` | externo | Quiz de la Presentación Plant-Based |
 | `cho-calculator.js` | externo | Calculadora de carbohidratos |
 | `user-service.js` | externo | Operaciones de usuario en Firestore |
 
@@ -243,6 +252,7 @@ grid: .cards-grid (auto-fill, minmax 260px)
 | Módulo 1 | `quiz_result` | `quiz_passed` |
 | Taller CHO | `taller_quiz_result` | `taller_quiz_passed` |
 | Lectura Microbiota | `quiz_lectura_microbiota_result` | `quiz_lectura_microbiota_passed` |
+| Presentación Plant-Based | `quiz_presentacion_plantbased_result` | `quiz_presentacion_plantbased_passed` |
 
 ### Umbral de aprobación
 - Todas las evaluaciones: **80%** (4/5 preguntas correctas en quizzes de 5 preguntas)
@@ -305,6 +315,7 @@ sessionStorage.student_name = 'Dra. Ana M. Rodríguez Vega'
 |---|---|---|---|
 | DM2 / Lectura | Lcda. Sofía M. Berríos Colón | MS, RDN, LD, CDCES | SB |
 | Taller CHO | Lcda. María L. Torres Rivera | RDN, LD, CDCES | ML |
+| Presentación Plant-Based | Lcda. Sofía M. Berríos Colón | MS, RDN, LD, CDCES | SB |
 | Coordinadora académica | Lcda. Sofía M. Berríos Colón, RD, CDE | — | — |
 
 ---
