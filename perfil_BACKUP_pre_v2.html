@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil | LMS CNDPR</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script type="module" src="scripts/auth-guard.js"></script>
+</head>
+<body>
+    <div class="app-shell">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="lms-sidebar">
+            <a href="dashboard.html" class="sidebar-brand">
+                <img src="CNDPR-LOGO-transparent.png" alt="CNDPR" class="sidebar-logo">
+            </a>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-link">
+                    <span class="icon">🏠</span>
+                    <span>Dashboard</span>
+                </a>
+                
+                <div class="meta-label p-4 mb-0" style="padding: var(--space-4) var(--space-4) 0; font-size: var(--text-xs); color: var(--color-text-faint);">Módulos</div>
+                <a href="modulo1_intro.html" class="nav-link">
+                    <span class="icon">📘</span>
+                    <span>Módulo 1</span>
+                </a>
+                <a href="modulo2_intro.html" class="nav-link">
+                    <span class="icon">📗</span>
+                    <span>Módulo 2</span>
+                </a>
+                <a href="modulo3_intro.html" class="nav-link">
+                    <span class="icon">📙</span>
+                    <span>Módulo 3</span>
+                </a>
+                
+                <hr class="mt-4 mb-4">
+                <a href="perfil.html" class="nav-link is-active" aria-current="page">
+                    <span class="icon">👤</span>
+                    <span>Mi Perfil</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="avatar avatar-sm">U</div>
+                    <div class="user-info">
+                        <div class="text-sm weight-bold" style="font-weight: var(--weight-bold);">Estudiante</div>
+                        <div class="text-xs text-muted">Online</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <button class="mobile-menu-button btn btn-ghost btn-icon" aria-label="Abrir menú de navegación" aria-controls="lms-sidebar" aria-expanded="false">
+                    <span style="font-size: 24px;">☰</span>
+                </button>
+                <div class="topbar-title">Mi Perfil</div>
+                <div class="topbar-actions">
+                    <div class="cluster">
+                        <a href="dashboard.html" class="btn btn-ghost btn-sm">Volver al Dashboard</a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-wrapper">
+                <header class="page-header">
+                    <h1 class="page-title">Perfil de Usuario</h1>
+                    <p class="text-muted">Información general de la cuenta y progreso en el LMS.</p>
+                </header>
+
+                <div class="grid" style="--grid-cols: 1; --grid-gap: var(--space-6);">
+                    <!-- Account Information -->
+                    <section class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Información de la Cuenta</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="stack" style="--stack-gap: var(--space-4);">
+                                <div class="split" style="align-items: center;">
+                                    <div>
+                                        <div class="text-xs text-muted mb-1">Nombre Completo</div>
+                                        <div class="weight-bold">Estudiante</div>
+                                    </div>
+                                    <span class="status-pill">Activo</span>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-muted mb-1">Correo Electrónico</div>
+                                    <div>correo@ejemplo.com</div>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-muted mb-1">Rol en el Sistema</div>
+                                    <div class="badge">Participante</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Course Progress -->
+                    <section class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Progreso del Curso</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="course-progress mb-6">
+                                <div class="split mb-2">
+                                    <span class="text-sm weight-bold">Progreso General</span>
+                                    <span class="text-sm">33%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-fill" style="width: 33%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="grid auto-grid" style="--grid-min: 200px; gap: var(--space-4);">
+                                <div class="p-4 border rounded-lg text-center" style="border: 1px solid var(--color-border-default); border-radius: var(--radius-md);">
+                                    <div class="text-2xl weight-bold mb-1" style="font-size: var(--text-2xl); font-weight: var(--weight-bold);">1 / 3</div>
+                                    <div class="text-xs text-muted">Módulos Iniciados</div>
+                                </div>
+                                <div class="p-4 border rounded-lg text-center" style="border: 1px solid var(--color-border-default); border-radius: var(--radius-md);">
+                                    <div class="text-2xl weight-bold mb-1" style="font-size: var(--text-2xl); font-weight: var(--weight-bold);">0 / 3</div>
+                                    <div class="text-xs text-muted">Módulos Completados</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Security / Auth Note -->
+                    <section class="card">
+                        <div class="card-body">
+                            <div class="split" style="align-items: center;">
+                                <div class="stack" style="--stack-gap: var(--space-1);">
+                                    <h3 class="weight-bold">Seguridad y Autenticación</h3>
+                                    <p class="text-sm text-muted">La información de acceso se gestiona de forma segura mediante Firebase Authentication.</p>
+                                </div>
+                                <button class="btn btn-outline" disabled title="Función disponible próximamente">Cambiar Contraseña</button>
+                            </div>
+                            <p class="text-xs text-muted mt-4" style="font-style: italic;">Nota: Estos datos son temporales (placeholders) hasta la integración completa con Firebase Auth.</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="scripts/firebase-config.js"></script>
+    <script src="scripts/ui-controller.js"></script>
+</body>
+</html>
