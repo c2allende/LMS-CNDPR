@@ -55,7 +55,7 @@ Estado: **prototipo demostrativo** — contenido no oficial.
 | Archivo | Descripción |
 |---|---|
 | `dashboard.html` | Dashboard del estudiante |
-| `perfil.html` | Perfil del usuario |
+| `perfil.html` | Perfil del usuario — 4 cards: cuenta, progreso, seguridad, Repositorio de Certificados (plataforma + externos + contador horas EC + fecha renovación licencia) |
 
 ### Oferta E1 — Curso: Manejo Nutricional DM2 (EC-2026-001 | 15h EC | Premium)
 | Archivo | Descripción |
@@ -117,11 +117,8 @@ Estado: **prototipo demostrativo** — contenido no oficial.
 `leccion2_1.html`, `leccion3_1.html`
 
 ### Prototipos activos (no reemplazados aún)
-| Prototipo | Estado |
-|---|---|
-| `lectura_microbiota_contenido-v2.html` | Pendiente aprobación — corrección tokens |
-| `lectura_microbiota_evaluacion-v2.html` | Pendiente aprobación — corrección tokens |
-| `perfil_v2_PROTOTIPO.html` | Pendiente aprobación — Repositorio de Certificados integrado |
+
+Sin prototipos pendientes.
 
 ---
 
@@ -218,17 +215,17 @@ Estado: **prototipo demostrativo** — contenido no oficial.
 ### Tokens locales (bloque `<style>` en cada archivo del patrón)
 ```css
 :root {
-  --teal:        #1D9E75;
-  --teal-light:  #E1F5EE;
-  --teal-dark:   #085041;   /* color del hero */
-  --amber:       #EF9F27;
-  --amber-light: #FAEEDA;
-  --amber-dark:  #633806;
-  --card-bg:     #EEECEA;
-  --text-main:   #1a1a1a;
-  --text-muted:  #4b5563;
-  --text-small:  #888780;
-  --border:      rgba(0,0,0,0.08);
+  --teal:        var(--color-primary);
+  --teal-light:  var(--color-primary-soft);
+  --teal-dark:   var(--color-primary-active);   /* color del hero */
+  --amber:       var(--color-secondary);
+  --amber-light: var(--color-secondary-soft);
+  --amber-dark:  var(--color-secondary-active);
+  --card-bg:     var(--color-surface-2);
+  --text-main:   var(--color-text);
+  --text-muted:  var(--color-text-muted);
+  --text-small:  var(--color-text-faint);
+  --border:      var(--color-border);
 }
 ```
 
@@ -372,4 +369,3 @@ sessionStorage.student_name = 'Dra. Ana M. Rodríguez Vega'
 
 - **DT-001**: Sidebar "Completados" usa el mismo anchor `#` en todos los ítems
 - **DT-002**: Clases utilitarias `.mt-4`, `.mb-4` referenciadas en sidebar sin definición en main.css
-- **DT-003**: `lectura_microbiota_contenido-v2.html` y `lectura_microbiota_evaluacion-v2.html` pendientes de aprobación y reemplazo
