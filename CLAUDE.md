@@ -108,8 +108,10 @@ Estado: **prototipo demostrativo** — contenido no oficial.
 ### Admin
 | Archivo | Descripción |
 |---|---|
-| `admin_dashboard.html` | Panel de administración |
-| `admin_usuarios.html` | Gestión de usuarios |
+| `admin_dashboard.html` | Dashboard administrativo — KPIs (estudiantes, horas EC, tasa aprobación, certificados), alertas de licencias/inactividad, activity log |
+| `admin_estudiantes.html` | Gestión de estudiantes — tabla con filtros (búsqueda, estado, progreso EC), modal de matrícula con creación de cuenta Firebase |
+| `admin_estudiante_detalle.html` | Detalle individual — info, progreso EC, historial evaluaciones, certificados plataforma/externos, comunicaciones |
+| `admin_usuarios.html` | Gestión de usuarios (legado) |
 | `admin_anuncios.html` | Gestión de anuncios |
 
 ### Templates y placeholders
@@ -140,6 +142,8 @@ Sin prototipos pendientes.
 | `cho-calculator.js` | externo | Calculadora de carbohidratos |
 | `user-service.js` | externo | Operaciones de usuario en Firestore |
 | `perfil-certificados-controller.js` | externo | Repositorio de Certificados en perfil — Storage upload, contador horas EC, fecha renovación licencia |
+| `admin-dashboard-controller.js` | externo | KPIs, alertas de licencias/inactividad, activity log (fallback a MOCK_EVENTS si colección vacía) |
+| `admin-estudiantes-controller.js` | externo | Lista/filtros estudiantes, modal matrícula (secondary Firebase app), detalle individual con subcollections |
 
 ### Orden de carga de scripts (obligatorio)
 ```html
